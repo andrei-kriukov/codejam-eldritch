@@ -3,6 +3,13 @@ body {
     background-size: cover;
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .ancients {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -19,4 +26,19 @@ body {
     background-size: contain;
     height: 274px;
     width: 222px;
+}
+
+.difficulties {
+    max-width: 20%;
+
+}
+
+.difficulties-button {
+    padding: 10px 30px;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+
 }
