@@ -47,12 +47,14 @@ body {
 .levels_and_cards {
     max-width: 40%;
     display: flex;
+    flex-direction: column;
 }
 
 .qty {
     display: flex;
     flex-direction: row;
     margin-top: 10px;
+    justify-content: center;
 }
 
 .circle {
@@ -81,4 +83,25 @@ body {
 .blue {
     border: 2px solid blue;
     background-color: blue;
+}
+
+
+.deck {
+    background: center center no-repeat url(./assets/mythicCardBackground.png) ;
+    height: 294px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.cards {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.new_card {
+    height: 290px;
+    width: 200px;
+    border: 2px solid white;
+    margin-left: 10px;
 }
