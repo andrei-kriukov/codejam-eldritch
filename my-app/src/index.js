@@ -22,6 +22,17 @@ addAncients();
 // add numbers to levels
 
 
+function getLevels (ancientName) {
+    let levels = ancientsData.filter((e) => {
+        if (e.id === ancientName) {
+         return true;
+        } else {return false};
+     })
+    return levels;
+}
+
+
+
 function addLevels (ancientName) {
 
     let circles = [];
@@ -35,12 +46,7 @@ function addLevels (ancientName) {
         
     let numbers = [];
 
-    let result = ancientsData.filter((e) => {
-       if (e.id === ancientName) {
-        return true;
-       } else {return false};
-    })
-
+    let result = getLevels(ancientName);
     
     stages.forEach((e) => {
         numbers.push(result[0][e].greenCards);
@@ -60,3 +66,6 @@ const ancientsDiv = document.querySelector('.ancients');
 ancientsDiv.addEventListener('click', (e) => {
     addLevels(e.target.name);
 });
+
+
+
