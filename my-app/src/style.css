@@ -1,6 +1,8 @@
 body {
     background: center center fixed no-repeat url("./assets/home.png") ;
     background-size: cover;
+    text-align: center;
+    color: white;
 }
 
 .wrapper {
@@ -26,10 +28,12 @@ body {
     background-size: contain;
     height: 274px;
     width: 222px;
+    cursor: pointer;
 }
 
 .difficulties {
     max-width: 20%;
+    cursor: pointer;
 
 }
 
@@ -38,7 +42,43 @@ body {
     border: 2px solid black;
     background-color: rgba(255, 255, 255, 0.2);
     margin-bottom: 10px;
-    text-align: center;
-    color: white;
+}
 
+.levels_and_cards {
+    max-width: 40%;
+    display: flex;
+}
+
+.qty {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.circle {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 15px;
+}
+
+.level_block {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.green {
+    border: 2px solid green;
+    background-color: green;
+}
+
+.red {
+    border: 2px solid orange;
+    background-color: orange;
+}
+
+.blue {
+    border: 2px solid blue;
+    background-color: blue;
 }

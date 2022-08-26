@@ -9,8 +9,8 @@ function addAncients () {
         const oneAncient = document.createElement("div");
         ancientsDiv.appendChild(oneAncient);
         oneAncient.classList.add("ancient-card");
-        console.log(e.cardFace);
         oneAncient.style.backgroundImage = "url("+e.cardFace+")";
+        oneAncient.name = e.id;
     
     });
 
@@ -18,5 +18,45 @@ function addAncients () {
 
 addAncients();
 
-// console.log(ancients.azathoth);
-console.log(ancientsData[0]);
+
+// add numbers to levels
+
+
+function addLevels (ancientName) {
+
+    let circles = [];
+
+    for (let i = 0; i < 9; i++) {
+         const circle = document.getElementById(`level_${i}`);
+         circles.push(circle);
+    }
+
+    const stages = ['firstStage', 'secondStage', 'thirdStage'];
+        
+    let numbers = [];
+
+    let result = ancientsData.filter((e) => {
+       if (e.id === ancientName) {
+        return true;
+       } else {return false};
+    })
+
+    
+    stages.forEach((e) => {
+        numbers.push(result[0][e].greenCards);
+        numbers.push(result[0][e].brownCards);
+        numbers.push(result[0][e].blueCards);
+    });
+
+    for (let i = 0; i < circles.length; i++) {
+        circles[i].innerHTML = numbers[i];
+    }
+    
+}
+  
+
+const ancientsDiv = document.querySelector('.ancients');
+
+ancientsDiv.addEventListener('click', (e) => {
+    addLevels(e.target.name);
+});
