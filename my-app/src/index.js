@@ -64,7 +64,6 @@ function getNumbers () {
         numbers.push(result[0][e].blueCards);
     });
 
-        console.log(numbers);
     return numbers;
 }
 
@@ -87,7 +86,6 @@ const ancientsDiv = document.querySelector('.ancients');
 ancientsDiv.addEventListener('click', (e) => {
     const ancientCard = document.getElementsByClassName('ancient-card');
     for (let i = 0; i < ancientCard.length; i++) {
-        console.log(ancientCard[i]);
         ancientCard[i].classList.remove('red-border');
     }
     ancient = e.target.name;
@@ -107,61 +105,116 @@ function filterCards (arr, difficultyType) {
     return newObj;
 }
 
-// Get a Deck
 
+// get random card
+
+function getRandom(num) {
+    return Math.floor(Math.random() * num);
+  };
+
+function getRandomCard (arr, qty) {
+    let set = new Set();
+    for (let i = 0; Array.from(set).length < qty; i++) {
+        set.add(arr[getRandom(arr.length)]);
+    }
+    
+    return Array.from(set);
+};
+
+// Get a Deck
 
 
 function getDeck (level) {
     
-    const numberOfCards = Object.keys(allMythicCards.brownCards);
+   // const numberOfCards = Object.keys(allMythicCards.brownCards);
     
-    let cardsQty = numbers.reduce((a, b) => a + b, 0)
+   // let cardsQty = numbers.reduce((a, b) => a + b, 0)
     
+    let green = numbers[0] + numbers[3] + numbers[6];
+    let brown = numbers[1] + numbers[4] + numbers[7];
+    let blue = numbers[2] + numbers[5] + numbers[8];
+    console.log(`green ${green}, brown ${brown}, blue ${blue}`)
 
     let deck = {};
 
     if (level === 'medium') {
-        deck = allMythicCards;
-    }
+        
+       for  (let property in allMythicCards) {
+            let qty = 0;
+
+            if (property === 'greenCards') {qty = green}
+            else if (property === 'brownCards') {qty = brown}
+            else {qty = blue};
+    
+            deck[property] = getRandomCard(allMythicCards[property], qty)
+           } 
+    };
+
 
     if (level === 'veryLight') {
         for (const property in allMythicCards) {
             deck[property] = filterCards(allMythicCards[property], 'easy');
         }
     }
-    console.log(deck);
     return deck;
 }
 
-console.log(getDeck('veryLight'));
+// set deck
 
 const difficulties = document.querySelector('.difficulties');
 difficulties.addEventListener('click', (e)=> {
-    getDeck(e.target.id);
-    
+        
     const difficultiesBtns = document.getElementsByClassName('difficulties-button');
 
     for (let i = 0; i < difficultiesBtns.length; i++) {
-        console.log(difficultiesBtns[i]);
         difficultiesBtns[i].classList.remove('red-border');
     }
     e.target.classList.add('red-border');
 
+    splitDeck(e.target.id);
+
 })
 
-// console.log(allMythicCards);
-/*
-let newObj = Object.keys(allMythicCards.brownCards) 
-console.log(newObj);
-*/
 
 
 
 
+function splitDeck (level) {
 
-function splitDeck () {
+    let firstStage = [];
+    let secondStage = [];
+    let thirdStage = [];
+    let splitedDeck = [firstStage, secondStage, thirdStage];
 
+    let deck = getDeck(level);
+    console.log(deck);
+
+    const colors = [deck.greenCards, deck.brownCards, deck.blueCards]
+
+    numbers.forEach((n, ind) => {
+        
+        for (let i = 0; i < n; i++) {
+            if (Math.trunc(ind / 3) === 0) {
+                let element = colors[ind].pop();
+                console.log(element);
+                firstStage.push(element);
+            }
+            else if (Math.trunc(ind / 3) === 1) {
+                let element = colors[ind -3].pop();
+                secondStage.push(element);
+            }
+            else {
+                let element = colors[ind - 6].pop();
+                thirdStage.push(element);
+            }
+        }
+        }
+    )
+
+    console.log(splitedDeck);
+    return splitedDeck;    
 }
+
 
 
 
@@ -179,4 +232,11 @@ kneadBtn.addEventListener('click', () => {
     new_card.classList.add('new_card1');
     levels.classList.remove('levels');
     kneadBtn.classList.add('remove-knead');
+
+
 })
+
+
+// distribute the deck 
+
+
