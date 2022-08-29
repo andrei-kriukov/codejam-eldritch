@@ -85,9 +85,15 @@ function addLevels () {
 const ancientsDiv = document.querySelector('.ancients');
 
 ancientsDiv.addEventListener('click', (e) => {
+    const ancientCard = document.getElementsByClassName('ancient-card');
+    for (let i = 0; i < ancientCard.length; i++) {
+        console.log(ancientCard[i]);
+        ancientCard[i].classList.remove('red-border');
+    }
     ancient = e.target.name;
     numbers = getNumbers(ancient);
     addLevels();
+    e.target.classList.add('red-border');
 });
 
 
@@ -132,11 +138,18 @@ console.log(getDeck('veryLight'));
 const difficulties = document.querySelector('.difficulties');
 difficulties.addEventListener('click', (e)=> {
     getDeck(e.target.id);
-    console.log(e.target.id);
+    
+    const difficultiesBtns = document.getElementsByClassName('difficulties-button');
+
+    for (let i = 0; i < difficultiesBtns.length; i++) {
+        console.log(difficultiesBtns[i]);
+        difficultiesBtns[i].classList.remove('red-border');
+    }
+    e.target.classList.add('red-border');
 
 })
 
-console.log(allMythicCards);
+// console.log(allMythicCards);
 /*
 let newObj = Object.keys(allMythicCards.brownCards) 
 console.log(newObj);
@@ -149,3 +162,21 @@ console.log(newObj);
 function splitDeck () {
 
 }
+
+
+
+// add deck after knead button clicked
+
+const kneadBtn = document.querySelector('.knead');
+const cardsGroup = document.querySelector('.cards');
+const deck = document.querySelector('.deck');
+const new_card = document.querySelector('.new_card');
+const levels = document.querySelector('.levels');
+
+kneadBtn.addEventListener('click', () => {
+    cardsGroup.classList.add('cards1');
+    deck.classList.add('deck1');
+    new_card.classList.add('new_card1');
+    levels.classList.remove('levels');
+    kneadBtn.classList.add('remove-knead');
+})
