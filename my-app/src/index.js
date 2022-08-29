@@ -7,7 +7,7 @@ import {
     greenCards
   } from './data/mythicCards/index.js'
 
-
+console.log("Я не выполнил задание, но смог получить несколько промежуточных результатов")
 const allMythicCards =  {
     brownCards,
     blueCards,
@@ -133,7 +133,7 @@ function getDeck (level) {
     let green = numbers[0] + numbers[3] + numbers[6];
     let brown = numbers[1] + numbers[4] + numbers[7];
     let blue = numbers[2] + numbers[5] + numbers[8];
-    console.log(`green ${green}, brown ${brown}, blue ${blue}`)
+    console.log(`- получить количество карт в зависимости от старейшего\ngreen ${green}, brown ${brown}, blue ${blue}`)
 
     let deck = {};
 
@@ -175,7 +175,7 @@ difficulties.addEventListener('click', (e)=> {
 
 })
 
-
+console.log("А если нажать на среднюю сложность, то")
 
 
 
@@ -187,7 +187,7 @@ function splitDeck (level) {
     let splitedDeck = [firstStage, secondStage, thirdStage];
 
     let deck = getDeck(level);
-    console.log(deck);
+    
 
     const colors = [deck.greenCards, deck.brownCards, deck.blueCards]
 
@@ -211,7 +211,7 @@ function splitDeck (level) {
         }
     )
 
-    console.log(splitedDeck);
+    console.log(` можно получить колоду карт, с разделением на 3 этапа:\n${splitedDeck}\nОсталось только подключить pop() к колоде, но уже не успеваю :)`);
     return splitedDeck;    
 }
 
