@@ -1,0 +1,142 @@
+body {
+    background: center center fixed no-repeat url("./assets/home.png") ;
+    background-size: cover;
+    text-align: center;
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ancients {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        max-width: 40%;
+        padding-top: 5%;
+    
+}
+
+.ancient-card {
+    background: center center no-repeat;
+    background-size: contain;
+    height: 274px;
+    width: 222px;
+    cursor: pointer;
+}
+
+.red-border {
+    border: 3px solid rgb(255, 0, 0);;
+}
+
+.difficulties {
+    max-width: 20%;
+    cursor: pointer;
+
+}
+
+.difficulties-button {
+    padding: 10px 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    color:rgba(255, 255, 255, 0.2)
+}
+
+#medium {
+    color: white;
+}
+
+.levels{
+    display: none;
+}
+
+.levels_and_cards {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
+.qty {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.circle {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    margin-left: 15px;
+}
+
+.show-levels {
+    display: flex;
+}
+
+.level_block {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.green {
+    border: 2px solid green;
+    background-color: green;
+}
+
+.red {
+    border: 2px solid orange;
+    background-color: orange;
+}
+
+.blue {
+    border: 2px solid blue;
+    background-color: blue;
+}
+
+.knead {
+    padding: 10px 30px;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.remove-knead {
+    display: none;
+}
+
+.deck1 {
+    background: center center no-repeat url(./assets/mythicCardBackground.png) ;
+    height: 294px;
+    width: 200px;
+    cursor: pointer;
+}
+
+.emptyDeck {
+    height: 294px;
+    width: 200px;
+    border: 2px solid white;
+}
+
+.cards1 {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.new_card1 {
+    height: 290px;
+    width: 200px;
+    border: 2px solid white;
+    margin-left: 10px;
+    background: center center no-repeat;
+    background-size: contain;
+}
